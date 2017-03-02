@@ -14,7 +14,7 @@ namespace eve_CoTo
     public partial class Mainwindow : Form
     {
         //Xml file path
-        string path = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\bin\\Debug";
+        string path = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Component.xml";
         //Init of the componentlist
         List<Component> comp = new List<Component>();
 
@@ -31,7 +31,7 @@ namespace eve_CoTo
         public void ReadXmlFile()
         {
             //init of xmltextreader
-            XmlTextReader reader = new XmlTextReader("D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\bin\\Debug");
+            XmlTextReader reader = new XmlTextReader("D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Component.xml");
 
             if(reader == null)
             {
