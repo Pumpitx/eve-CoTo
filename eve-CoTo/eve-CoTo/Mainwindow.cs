@@ -25,7 +25,19 @@ namespace eve_CoTo
 
         public void GetComponentByName(string input)
         {
+            //find input in list
+            var result = comp.Find(x => x.name.Equals(input));
 
+            if (result != null)
+            {
+
+            }
+            else
+            {
+                //for debug
+                MessageBox.Show("ComponentName not found!");
+            }
+            
         }
 
         public void ReadXmlFile()
