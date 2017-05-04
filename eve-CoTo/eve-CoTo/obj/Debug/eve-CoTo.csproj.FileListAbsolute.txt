@@ -1,3 +1,11 @@
 D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\bin\Debug\eve-CoTo.exe.config
 D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\bin\Debug\eve-CoTo.exe.config
 C:\Users\pheno\Source\Repos\eve-CoTo\eve-CoTo\eve-CoTo\bin\Debug\eve-CoTo.exe.config
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\bin\Debug\eve-CoTo.exe
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\bin\Debug\eve-CoTo.pdb
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\obj\Debug\eve-CoTo.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\obj\Debug\eve_CoTo.Mainwindow.resources
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\obj\Debug\eve_CoTo.Properties.Resources.resources
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\obj\Debug\eve-CoTo.csproj.GenerateResource.Cache
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\obj\Debug\eve-CoTo.exe
+D:\Visual Studio Projekte\eve-CoTo\eve-CoTo\eve-CoTo\obj\Debug\eve-CoTo.pdb

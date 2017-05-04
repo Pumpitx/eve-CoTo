@@ -2,8 +2,6 @@
 
 <components>
 
-<caldari>
-
 <titanium_diborite_armor_plates>
 <titanium_carbide>39,6</titanium_carbide>
 <sylramic_fibers>9,9</sylramic_fibers>
@@ -13,14 +11,14 @@
 <titanium_carbide>19,8</titanium_carbide>
 <sylramic_fibers>8,1</sylramic_fibers>
 </sustained_shield_ermitter>
-
 <scalar_capacitor_unit>
+
 <titanium_carbide>24,3</titanium_carbide>
 <fulleride>9,9</fulleride>
 <ferrogel>1</ferrogel>
 </scalar_capacitor_unit>
-
 <superconductor_rails>
+
 <titanium_carbide>27,9</titanium_carbide>
 <fulleride>9,9</fulleride>
 <hypersynaptic_fibers>1</hypersynaptic_fibers>
@@ -56,6 +54,5 @@
 <fermionic_condensates>1,8</fermionic_condensates>
 </graviton_reactor_unit>
 
-</caldari>
 
 </components>

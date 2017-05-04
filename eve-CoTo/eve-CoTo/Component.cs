@@ -10,8 +10,8 @@ namespace eve_CoTo
     {
 
         //Properties
-        public string name { get; set; }
-        public string race { get; set; }
+        public string Name { get; set; }
+        public string Race { get; set; }
 
         //List
         public List<Material> MaterialNeeded = new List<Material>();

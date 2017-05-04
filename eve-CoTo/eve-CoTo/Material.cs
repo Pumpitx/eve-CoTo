@@ -8,7 +8,7 @@ namespace eve_CoTo
 {
     class Material
     {
-        public string name { get; set; }
-        public int amount { get; set; }
+        public string Name { get; set; }
+        public float Amount { get; set; }
     }
 }
