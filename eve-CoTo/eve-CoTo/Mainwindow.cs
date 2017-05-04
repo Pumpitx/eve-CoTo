@@ -57,7 +57,7 @@ namespace eve_CoTo
             //temp string for component name
             string Component_Name = String.Empty;
             
-
+            //reading the xml file
             while (reader.Read())
             {
                 switch(reader.NodeType)
