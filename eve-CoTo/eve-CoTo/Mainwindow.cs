@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -13,12 +14,16 @@ namespace eve_CoTo
 {
     public partial class Mainwindow : Form
     {
-        //Xml file path --> temporary
-        string path = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Components.xml";
+        //creating variables for the paths of the XML files
+        string pathCaldari = String.Empty;
+        string pathMinmatar = String.Empty;
+        string pathGallente = String.Empty;
+        string pathAmarr = String.Empty;
+
         //Init of the componentlist
         List<Component> comp = new List<Component>();
         //private string for choosed race
-        string race = String.Empty;
+        private string race = String.Empty;
 
         public Mainwindow()
         {
@@ -30,11 +35,29 @@ namespace eve_CoTo
             //hiding AddComponent button
             buttonAdd.Visible = false;
             //hiding component combobox
-            comboComponent.Visible = false;
+            comboComponent.Visible = false;           
 
-            ReadXmlFile();
-            
+        }
 
+        public bool CheckXmlFiles()
+        {
+            //All Component paths are temporary
+            pathAmarr = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Minmatar_Components.xml";
+            pathCaldari = "D:\\Visual Studio Projekte\\eve - CoTo\\eve - CoTo\\eve - CoTo\\bin\\Debug\\Caldari_Components.xml";
+            pathGallente = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Gallente_Components.xml";
+            pathMinmatar = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Minmatar_Components.xml";
+
+            //checking if files are existing and permissions are valid
+            if(File.Exists(pathAmarr) && File.Exists(pathCaldari) && File.Exists(pathGallente) && File.Exists(pathMinmatar))
+            {
+                return true;
+            }
+            else
+            {
+                //return a message box if the files are invalid and return false
+                MessageBox.Show("Error! Component Files are not found or wrong permissions!, Error!");
+                return false;
+            }
         }
 
         public void GetComponentByName(string input)
@@ -54,21 +77,29 @@ namespace eve_CoTo
             
         }
 
-        public void ReadXmlFile()
+        public void ReadXmlFile(string race)
         {
-            //init of xmltextreader
-            XmlTextReader reader = new XmlTextReader(path);
+            string path = String.Empty;
 
-            if(reader == null)
+            switch(race)
             {
-                MessageBox.Show("Failed to find component.xml.");
+                case "amarr":
+                    path = pathAmarr;
+                    break;
+                case "caldari":
+                    path = pathCaldari;
+                    break;
+                case "gallente":
+                    path = pathGallente;
+                    break;
+                case "minmatar":
+                    path = pathMinmatar;
+                    break;
             }
 
-            //temp string for race
-            string race = String.Empty;
-            //temp bool for component names
-            bool isNewComponent = false;
-            //temp string for component name
+            //init of XmlTextReader with path of Race
+            XmlTextReader reader = new XmlTextReader(path);
+            //temp string for component name to find it in the list
             string Component_Name = String.Empty;
             
             //reading the xml file
@@ -77,19 +108,10 @@ namespace eve_CoTo
                 switch(reader.NodeType)
                 {
                     case XmlNodeType.Element:
-                        //set the race the component is
-                     if(reader.Name.Equals("caldari") | reader.Name.Equals("gallente") | reader.Name.Equals("minmatar") | reader.Name.Equals("amarr"))
-                        {
-                            race = reader.Name;
-                        }
-                        //else
-                        {
-                            //Adding the component to list
-                            comp.Add(new Component() { Name = Convert.ToString(reader.Name),Race = this.race });
-                            isNewComponent = true;
-                            Component_Name = Convert.ToString(reader.Name);
-                        }
-                        break;
+                            //adding the new component to the list
+                            comp.Add(new Component() { Name = Convert.ToString(reader.Name),Race = this.race});
+                            Component_Name = Convert.ToString(reader.Name);                        
+                            break;
 
                     case XmlNodeType.Text:
                         if (isNewComponent == true)
