@@ -16,6 +16,11 @@ namespace eve_CoTo
         //List
         public List<Material> MaterialNeeded = new List<Material>();
 
+        public void AddToList(string name, double amount)
+        {
+            this.MaterialNeeded.Add(new Material { Name = name, Amount = amount });
+        }
+
         
     }
 }

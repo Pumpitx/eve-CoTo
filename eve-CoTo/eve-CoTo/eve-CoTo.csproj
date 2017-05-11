@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caldari.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Mainwindow.cs">
       <SubType>Form</SubType>

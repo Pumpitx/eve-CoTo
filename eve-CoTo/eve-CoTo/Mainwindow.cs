@@ -39,28 +39,8 @@ namespace eve_CoTo
 
         }
 
-        public bool CheckXmlFiles()
-        {
-            //All Component paths are temporary
-            pathAmarr = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Minmatar_Components.xml";
-            pathCaldari = "D:\\Visual Studio Projekte\\eve - CoTo\\eve - CoTo\\eve - CoTo\\bin\\Debug\\Caldari_Components.xml";
-            pathGallente = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Gallente_Components.xml";
-            pathMinmatar = "D:\\Visual Studio Projekte\\eve-CoTo\\eve-CoTo\\eve-CoTo\\bin\\Debug\\Minmatar_Components.xml";
 
-            //checking if files are existing and permissions are valid
-            if(File.Exists(pathAmarr) && File.Exists(pathCaldari) && File.Exists(pathGallente) && File.Exists(pathMinmatar))
-            {
-                return true;
-            }
-            else
-            {
-                //return a message box if the files are invalid and return false
-                MessageBox.Show("Error! Component Files are not found or wrong permissions!, Error!");
-                return false;
-            }
-        }
-
-        public void GetComponentByName(string input)
+        public void GetComponentByName(string input, string race)
         {
             //find input in list
             var result = comp.Find(x => x.Name.Equals(input));
@@ -77,61 +57,6 @@ namespace eve_CoTo
             
         }
 
-        public void ReadXmlFile(string race)
-        {
-            string path = String.Empty;
-
-            switch(race)
-            {
-                case "amarr":
-                    path = pathAmarr;
-                    break;
-                case "caldari":
-                    path = pathCaldari;
-                    break;
-                case "gallente":
-                    path = pathGallente;
-                    break;
-                case "minmatar":
-                    path = pathMinmatar;
-                    break;
-            }
-
-            //init of XmlTextReader with path of Race
-            XmlTextReader reader = new XmlTextReader(path);
-            //temp string for component name to find it in the list
-            string Component_Name = String.Empty;
-            
-            //reading the xml file
-            while (reader.Read())
-            {
-                switch(reader.NodeType)
-                {
-                    case XmlNodeType.Element:
-                            //adding the new component to the list
-                            comp.Add(new Component() { Name = Convert.ToString(reader.Name),Race = this.race});
-                            Component_Name = Convert.ToString(reader.Name);                        
-                            break;
-
-                    case XmlNodeType.Text:
-                        if (isNewComponent == true)
-                        {
-                            Component found = comp.Find(x => x.Name.Equals(Component_Name));
-
-                            if(found != null)
-                            {
-                                found.MaterialNeeded.Add(new Material { Name = reader.Name, Amount = float.Parse(reader.Value) });
-                            }
-                        }
-
-                        break;
-
-                    case XmlNodeType.EndElement:
-                        isNewComponent = false;
-                        break;
-                }
-            }
-        }
 
         private void ActivateGUI()
         {
