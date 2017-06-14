@@ -2,12 +2,12 @@
 
 <components>
 
-<titanium_diborite_armor_plates>
-<name>titanium_carbide</name>
-<amount>396</amount>
-<name>sylramic_fibers</name>
-<amount>9,9</amount>
-</titanium_diborite_armor_plates>
+    <titanium_diborite_armor_plates>
+    <name>titanium_carbide</name>
+    <amount>39</amount>
+    <name>sylramic_fibers</name>
+    <amount>9,9</amount>
+    </titanium_diborite_armor_plates>
 
 <sustained_shield_ermitter>
 <name>titanium_carbide</name>
